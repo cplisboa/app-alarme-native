@@ -12,7 +12,9 @@ const toggleAlarme = () => {
 
   return (
     <View style={styles.container}>
-      { alarmeLigado && <Text>Alarme atualmente LIGADO</Text> }
+      { alarmeLigado && <Text style={{
+        padding: 20px
+      }}>Alarme atualmente LIGADO</Text> }
       { !alarmeLigado && <Text>Alarme atualmente DESLIGADO</Text> }
 
       { alarmeLigado &&
