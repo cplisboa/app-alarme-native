@@ -1,11 +1,29 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+import { StyleSheet, Text, View,Button, Alert } from 'react-native';
 
 export default function App() {
+
+const [alarmeLigado, setAlarmeLigado] = useState(false);
+
+const toggleAlarme = () => {
+  setAlarmeLigado(!alarmeLigado);
+}
+
   return (
     <View style={styles.container}>
-      <Text>Primeira alteração para primeiro commit!</Text>
+      { alarmeLigado && <Text>Alarme atualmente LIGADO</Text> }
+      { !alarmeLigado && <Text>Alarme atualmente DESLIGADO</Text> }
+
+      { alarmeLigado &&
+         <Button title='Desligar Alarme' onPress={()=> toggleAlarme()} /> }
+
+      { !alarmeLigado &&
+         <Button title='Ligar Alarme' onPress={()=> toggleAlarme()} /> }
+
+
       <StatusBar style="auto" />
+
     </View>
   );
 }
