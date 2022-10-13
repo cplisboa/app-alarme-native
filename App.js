@@ -1,33 +1,52 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { StyleSheet, Text, View,Button, Alert } from 'react-native';
-import { ativaAlarme } from './services/ApiService';
+import { StyleSheet, Text, View, Button, Alert } from 'react-native';
+import { ativaAlarme, ligaLuz } from './services/ApiService';
 
 export default function App() {
+  const [alarmeLigado, setAlarmeLigado] = useState(false);
+  const [luzLigada, setLuzLigada] = useState(false);
+  const [mensagem, setMensagem] = useState('Aqui teremos as mensagens');
 
-const [alarmeLigado, setAlarmeLigado] = useState(false);
-const [mensagem, setMensagem] = useState('Aqui teremos as mensagens');
+  const toggleAlarme = (toggle) => {
+    setAlarmeLigado(!alarmeLigado);
+    ativaAlarme(toggle);
+  };
 
-const toggleAlarme = (toggle) => {
-  setAlarmeLigado(!alarmeLigado);
-  ativaAlarme(toggle);
-}
+  const toggleLuz = (toggle) => {
+    setLuzLigada(!luzLigada);
+    ligaLuz(toggle);
+  };
 
   return (
     <View style={styles.container}>
-      { alarmeLigado && <Text> --nova Alarme atualmente LIGADO</Text> }
-      { !alarmeLigado && <Text>-- nova Alarme atualmente DESLIGADO</Text> }
+      {alarmeLigado && <Text> Alarme atualmente LIGADO</Text>}
+      {!alarmeLigado && <Text> Alarme atualmente DESLIGADO</Text>}
 
-      { alarmeLigado &&
-         <Button title='Desligar Alarme' onPress={()=> toggleAlarme('off')} /> }
+      {luzLigada && <Text> Luzes LIGADAS </Text>}
+      {!luzLigada && <Text> Luzes DESLIGADAS </Text>}
 
-      { !alarmeLigado &&
-         <Button title='Ligar Alarme' onPress={()=> toggleAlarme('on')} /> }
-      
+      {alarmeLigado && (
+        <Button title="Desligar Alarme" onPress={() => toggleAlarme('off')} />
+      )}
+
+      {!alarmeLigado && (
+        <Button title="Ligar Alarme" onPress={() => toggleAlarme('on')} />
+      )}
+
+      //Botão para as Luzes
+      {luzLigada && (
+        <Button title="Desligar Luzes" onPress={() => toggleLuz('off')} />
+      )}
+
+      {!luzLigada && (
+        <Button title="Ligar Luzes" onPress={() => toggleLuz('on')} />
+      )}
+
+
       <Text> {mensagem} </Text>
 
       <StatusBar style="auto" />
-
     </View>
   );
 }
