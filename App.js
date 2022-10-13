@@ -6,23 +6,24 @@ import { ativaAlarme } from './services/ApiService';
 export default function App() {
 
 const [alarmeLigado, setAlarmeLigado] = useState(false);
-const [mensagem, setMensagem] = useState('');
+const [mensagem, setMensagem] = useState('Aqui teremos as mensagens');
 
-const toggleAlarme = () => {
+const toggleAlarme = (toggle) => {
   setAlarmeLigado(!alarmeLigado);
-  setMensagem(ativaAlarme());
+  ativaAlarme(toggle);
 }
 
   return (
     <View style={styles.container}>
-      { alarmeLigado && <Text>Alarme atualmente LIGADO</Text> }
-      { !alarmeLigado && <Text>Alarme atualmente DESLIGADO</Text> }
+      { alarmeLigado && <Text> --nova Alarme atualmente LIGADO</Text> }
+      { !alarmeLigado && <Text>-- nova Alarme atualmente DESLIGADO</Text> }
 
       { alarmeLigado &&
-         <Button title='Desligar Alarme' onPress={()=> toggleAlarme()} /> }
+         <Button title='Desligar Alarme' onPress={()=> toggleAlarme('off')} /> }
 
       { !alarmeLigado &&
-         <Button title='Ligar Alarme' onPress={()=> toggleAlarme()} /> }
+         <Button title='Ligar Alarme' onPress={()=> toggleAlarme('on')} /> }
+      
       <Text> {mensagem} </Text>
 
       <StatusBar style="auto" />
