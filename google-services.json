@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "747652006608",
+    "project_id": "app-alarme-native",
+    "storage_bucket": "app-alarme-native.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:747652006608:android:5099088cdff023c1d814d5",
+        "android_client_info": {
+          "package_name": "com.cplisboa.appCentral"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "747652006608-c2e10blb7du3essmdek0k37ssjsfgmfr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmGpHu2f4B1XJaPTZFLXRRmAKbc6JbnJo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "747652006608-c2e10blb7du3essmdek0k37ssjsfgmfr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
