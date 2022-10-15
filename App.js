@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { StyleSheet, Text, View, Button, Alert } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 import { ativaAlarme, ligaLuz } from './services/ApiService';
 
 export default function App() {
@@ -34,7 +34,6 @@ export default function App() {
         <Button title="Ligar Alarme" onPress={() => toggleAlarme('on')} />
       )}
 
-      //Botão para as Luzes
       {luzLigada && (
         <Button title="Desligar Luzes" onPress={() => toggleLuz('off')} />
       )}
@@ -42,9 +41,6 @@ export default function App() {
       {!luzLigada && (
         <Button title="Ligar Luzes" onPress={() => toggleLuz('on')} />
       )}
-
-
-      <Text> {mensagem} </Text>
 
       <StatusBar style="auto" />
     </View>
